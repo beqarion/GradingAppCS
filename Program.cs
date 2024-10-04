@@ -11,11 +11,10 @@ namespace MyGradingApp
       int currentAssignments = 5;
 
 
-      int[] sophiaScores = [90, 86, 87, 98, 100];
-      int[] andrewScores = [92, 89, 81, 96, 90];
-      int[] emmaScores = [90, 85, 87, 98, 68];
-      int[] loganScores = [90, 95, 87, 88, 96];
-
+      int[] sophiaScores = [90, 86, 87, 98, 100, 94, 90];
+      int[] andrewScores = [92, 89, 81, 96, 90, 89];
+      int[] emmaScores = [90, 85, 87, 98, 68, 89, 89, 89];
+      int[] loganScores = [90, 95, 87, 88, 96, 96];
 
 
       string[] studentNames = ["Sophia", "Andrew", "Emma", "Logan"];
@@ -43,9 +42,14 @@ namespace MyGradingApp
         int sumAssignmentScores = 0;
         decimal currentStudentGrade = 0;
 
+        int gradedAssignments = 0;
         foreach (int score in studentScores)
         {
-          sumAssignmentScores += score;
+          gradedAssignments++;
+          if (gradedAssignments <= currentAssignments)
+            sumAssignmentScores += score;
+          else
+            sumAssignmentScores += score / 10;
         }
         currentStudentGrade = (decimal)sumAssignmentScores / currentAssignments;
 
@@ -84,6 +88,9 @@ namespace MyGradingApp
 
         else if (currentStudentGrade >= 60)
           currentStudentLetterGrade = "D-";
+
+        else
+          currentStudentLetterGrade = "F";
 
         Console.WriteLine($"{currentStudent}\t\t{currentStudentGrade}\t{currentStudentLetterGrade}");
 
