@@ -7,7 +7,6 @@ namespace MyGradingApp
   {
     public static void Main(string[] args)
     {
-
       int examAssignments = 5;
 
       string[] studentNames = ["Sophia", "Andrew", "Emma", "Logan"];
